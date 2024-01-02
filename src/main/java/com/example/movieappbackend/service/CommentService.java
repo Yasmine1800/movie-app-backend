@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.movieappbackend.entity.Comment;
 
 public interface CommentService {
-    public Comment addComment(String userId, String filmId, String commentBody);
+    public Comment addComment(Comment comment);
     public List<Comment> getCommentsByFilmId(String filmId);
     
 }

@@ -8,4 +8,6 @@ public interface FavoriteService {
     public List<String> getFavoriteListByUserId(String userId);
     public Favorite addFavorite(String userId, String filmId);
     public int getFavoriteCount(String userId);
+    public List<String> getFavoriteFilmIdByUserId(String userId);
+    public void deleteFavorite(String userId, String filmId);
 }

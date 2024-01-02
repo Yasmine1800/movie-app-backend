@@ -19,8 +19,16 @@ public class UserServiceImp implements UserService {
         }
         return userRepository.save(user);
     }
+
     @Override
     public User getUserById(String userId) {
-        return userRepository.findByUserIdAsString(userId);
+        return userRepository.findById(userId)
+                .map(user -> user)
+                .orElse(null); 
+    }
+
+    @Override
+    public User saveUser(User user) {
+       return userRepository.save(user);
     }
 }

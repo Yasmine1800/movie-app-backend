@@ -1,5 +1,7 @@
 package com.example.movieappbackend.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,9 +61,27 @@ public class UserController {
 
     @PostMapping("/comment/add")
     public ResponseEntity<HttpStatus> addComment(@RequestBody Comment comment) {
-        commentService.addComment(comment.getUserId(),comment.getFilmId(),comment.getCommentBody());
+        commentService.addComment(comment);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/favorite/ids/{userId}")
+        public ResponseEntity<List<String>> getFavoriteFilmIdByUserId(@PathVariable("userId") String userId) {
+            return new ResponseEntity<>(favoriteService.getFavoriteFilmIdByUserId(userId),HttpStatus.OK);
+        }
+    
+
+    @PostMapping("/favorite/delete/{userId}/{filmId}")
+    public ResponseEntity<HttpStatus> deleteFavorite(@PathVariable("userId") String userId, @PathVariable("filmId") String filmId) {
+        favoriteService.deleteFavorite(userId,filmId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
+        return new ResponseEntity<>(userService.saveUser(user),HttpStatus.OK);
+    }
 
 }
+
+

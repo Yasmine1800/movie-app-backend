@@ -16,8 +16,8 @@ public class CommentServiceImp implements CommentService {
     CommentRepository commentRepository;
 
     @Override
-    public Comment addComment(String userId, String filmId, String commentBody) {
-        return commentRepository.save(new Comment(userId, filmId, commentBody));
+    public Comment addComment(Comment comment) {
+        return commentRepository.save(comment);
     }
 
     @Override

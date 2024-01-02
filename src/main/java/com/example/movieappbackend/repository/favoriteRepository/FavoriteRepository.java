@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.example.movieappbackend.entity.Favorite;
 import com.example.movieappbackend.entity.FavoritePK;
 
+
 public interface FavoriteRepository extends JpaRepository<Favorite, FavoritePK>{
 
     @Query("SELECT f.id.filmId FROM Favorite f WHERE f.id.userId = :userId")
@@ -17,4 +18,7 @@ public interface FavoriteRepository extends JpaRepository<Favorite, FavoritePK>{
     @Query("SELECT COUNT(f.id) FROM Favorite f WHERE f.id.userId = :userId")
     public int getFavoriteCount(String userId);
     
+
+    @Query("SELECT f.id.filmId FROM Favorite f WHERE f.id.userId = :userId")
+    public List<String> getFavoriteFilmIdByUserId(String userId);
 }

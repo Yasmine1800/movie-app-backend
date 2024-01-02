@@ -10,4 +10,6 @@ public class MovieAppBackendApplication {
         SpringApplication.run(MovieAppBackendApplication.class, args);
     }
 
+
+
 }
