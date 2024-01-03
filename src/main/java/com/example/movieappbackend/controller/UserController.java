@@ -22,7 +22,7 @@ import com.example.movieappbackend.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://movie-app-frontend-seven.vercel.app"})
 public class UserController {
 
     @Autowired

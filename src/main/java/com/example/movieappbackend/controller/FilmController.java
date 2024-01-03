@@ -13,7 +13,7 @@ import com.example.movieappbackend.entity.Comment;
 
 @RestController
 @RequestMapping("/film")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://movie-app-frontend-seven.vercel.app"})
 public class FilmController {
     
     @Autowired
